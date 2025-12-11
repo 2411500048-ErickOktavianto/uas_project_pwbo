@@ -38,7 +38,7 @@
                   <div class="mb-3">
                     <label for="nama_orang" class="form-label">Nama Orang</label>
                     <input type="text" class="form-control" name="nama_orang" id="nama_orang"
-                           aria-describedby="nama orang">
+                           aria-describedby="nama orang" placeholder="Masukkan Nama Orang">
                   </div>
 
                  <div class="mb-3">
