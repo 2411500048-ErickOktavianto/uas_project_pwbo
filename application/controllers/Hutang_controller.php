@@ -46,6 +46,7 @@ class Hutang_controller extends CI_Controller {
         'total_hutang' => $this->input->post('harga'),      // ✔ angka murni
         'satuan'       => $this->input->post('satuan'),     // ✔ simpan satuan juga
         'status_hutang'=> $this->input->post('status_hutang'),
+        'create_at' => date('Y-m-d H:i:s') 
     ];
 
         $simpan = $this->Hutang_model->tambah($data);
@@ -132,6 +133,7 @@ class Hutang_controller extends CI_Controller {
                 'total_hutang' => $this->input->post('harga', TRUE),   // angka murni
                 'satuan'       => $this->input->post('satuan', TRUE),
                 'status_hutang'=> $this->input->post('status_hutang', TRUE),
+                'create_at' => date('Y-m-d H:i:s')
             ];
 
             $update = $this->Hutang_model->update($id, $updateData);

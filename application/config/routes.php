@@ -67,6 +67,8 @@ $route['daftar_pesan/tambah'] = 'Daftar_pesan_controller/tambah_pesanan';
 $route['daftar_pesan/hapus/(:any)'] = 'Daftar_pesan_controller/hapus_pesanan/$1';
 $route['daftar_pesan/selesai/(:any)'] = 'Daftar_pesan_controller/selesai_pesanan/$1';
 $route['daftar_pesan/edit/(:any)'] = 'Daftar_pesan_controller/edit_pesanan/$1';
+$route['daftar_pesan/hapus_semua'] = 'Daftar_pesan_controller/hapus_semua';
+$route['daftar_pesan/hapus_banyak'] = 'Daftar_pesan_controller/hapus_banyak';
 
 // data team
 $route['team'] = 'Team_controller/index';

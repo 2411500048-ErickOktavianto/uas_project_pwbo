@@ -15,7 +15,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2025 <a href="https://discord.gg/GN2KAGCz" target="_blank">Immortal.id</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

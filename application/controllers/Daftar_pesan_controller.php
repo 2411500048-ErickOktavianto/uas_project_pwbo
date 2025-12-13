@@ -9,6 +9,7 @@ class Daftar_pesan_controller extends CI_Controller {
         parent::__construct();
         $this->load->model('Daftar_pesan_model');   // file: application/models/Daftar_pesan_model.php
         $this->load->model('Server_model');   // <= untuk keperluan ambil data server yang Available
+        $this->load->model('Team_model');   // <= untuk keperluan ambil data team 
         // kalau belum login, lempar ke login
         if (!$this->session->userdata('logged_in')) {
             redirect('login');
@@ -38,6 +39,8 @@ class Daftar_pesan_controller extends CI_Controller {
         } else {
             // hanya server yang Available yang boleh dipilih
             $data['servers'] = $this->Server_model->get_available();
+            // bagian data team untuk dropdown di daftar_pesan/tambah
+            $data['teams']   = $this->Team_model->get_all();
 
             $this->load->view('template/header');
             $this->load->view('template/sidebar');
@@ -49,6 +52,8 @@ class Daftar_pesan_controller extends CI_Controller {
     private function __simpan_pesanan()
     {
         $id_server = $this->input->post('server'); // ini id_server
+        $id_team   = $this->input->post('team');   // ini id_team
+        $id_team = empty($id_team) ? NULL : $id_team; // kalau kosong jadiin null
 
         // ambil satuan (DL / IDR)
         $satuan = $this->input->post('satuan');    // <-- tambahan
@@ -61,6 +66,7 @@ class Daftar_pesan_controller extends CI_Controller {
             'waktu'        => $this->input->post('waktu'),
             'nama_pembeli' => $this->input->post('nama_pembeli'),
             'server'       => $id_server,     // SIMPAN ID di DB
+            'team'         => $id_team,         // <-- simpan id team 
             'status_pesan' => 'Run',          // default Run
             'harga'        => $angka_harga,   // angka polos
             'satuan'       => $satuan,        // <-- simpan satuan
@@ -148,6 +154,61 @@ class Daftar_pesan_controller extends CI_Controller {
         redirect('daftar_pesan');
     }
 
+    public function hapus_banyak()
+    {
+        $ids = $this->input->post('id_pesan'); // array dari checkbox
+
+        if (empty($ids)) {
+            $this->session->set_flashdata('message', '<div class="alert alert-warning">Tidak ada data yang dipilih.</div>');
+            return redirect('daftar_pesan');
+        }
+
+        // ambil server yang dipakai oleh pesanan yang akan dihapus
+        $servers = $this->Daftar_pesan_model->get_servers_by_ids($ids);
+
+        // hapus banyak
+        $hapus = $this->Daftar_pesan_model->hapus_banyak($ids);
+
+        if ($hapus) {
+            // balikin status server jadi Available
+            foreach ($servers as $row) {
+                if (!empty($row['server'])) {
+                    $this->Server_model->update_status($row['server'], 'Available');
+                }
+            }
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success">Pesanan terpilih berhasil dihapus.</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus pesanan terpilih.</div>');
+        }
+
+        redirect('daftar_pesan');
+    }
+
+    public function hapus_semua()
+    {
+        // ambil semua server dari daftar_pesan (buat dikembalikan)
+        $servers = $this->Daftar_pesan_model->get_all_servers();
+
+        // hapus semua pesanan
+        $hapus = $this->Daftar_pesan_model->hapus_semua();
+
+        if ($hapus) {
+            foreach ($servers as $row) {
+                if (!empty($row['server'])) {
+                    $this->Server_model->update_status($row['server'], 'Available');
+                }
+            }
+            $this->session->set_flashdata('message', '<div class="alert alert-success">Semua pesanan berhasil dihapus.</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus semua pesanan.</div>');
+        }
+
+        redirect('daftar_pesan');
+    }
+
+
+
     public function edit_pesanan($id)
     {
         $pesan = $this->Daftar_pesan_model->get_by_id($id);
@@ -166,7 +227,7 @@ class Daftar_pesan_controller extends CI_Controller {
             
             $data['servers'] = $this->Server_model->get_available_or_current($pesan['server']); // ambil server yang ready saja jika tidak ready maka hilangkan
             $data['pesan']   = $pesan;
-
+            $data['teams']   = $this->Team_model->get_all();
             $this->load->view('template/header');
             $this->load->view('template/sidebar');
             $this->load->view('daftar_pesan/edit', $data);
@@ -176,6 +237,8 @@ class Daftar_pesan_controller extends CI_Controller {
 
             $old_server_id = $pesan['server'];
             $new_server_id = $this->input->post('server');
+            $id_team       = $this->input->post('team');   // ini id_team    
+            $id_team = empty($id_team) ? NULL : $id_team;
 
             // ---> HITUNG HARGA & SATUAN DI SINI
             $raw_harga   = $this->input->post('harga');
@@ -186,6 +249,7 @@ class Daftar_pesan_controller extends CI_Controller {
                 'waktu'        => $this->input->post('waktu'),
                 'nama_pembeli' => $this->input->post('nama_pembeli'),
                 'server'       => $new_server_id,
+                'team'         => $id_team,
                 'status_pesan' => $this->input->post('status_pesan'),
                 'harga'        => $angka_harga,
                 'satuan'       => $satuan,

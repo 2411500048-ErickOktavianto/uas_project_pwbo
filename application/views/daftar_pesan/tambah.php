@@ -45,7 +45,20 @@
                            placeholder="Misal: 13.00 - 16.00">
                     <?= form_error('waktu', '<small class="text-danger">', '</small>'); ?>
                   </div>
-
+                  <!-- team -->
+                <div class="mb-3">
+                  <label for="team" class="form-label">Team (Opsional)</label>
+                  <select name="team" id="team" class="form-control">
+                    <option value="">-- Tanpa Team --</option>
+                    <?php foreach ($teams as $t): ?>
+                      <option value="<?= $t['id_team']; ?>"
+                        <?= set_select('team', $t['id_team']); ?>>
+                        <?= $t['nama_team']; ?>
+                      </option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>  
+                  <!-- akhir -->
                   <div class="mb-3">
                     <label for="nama_pembeli" class="form-label">Nama Pembeli</label>
                     <input type="text"

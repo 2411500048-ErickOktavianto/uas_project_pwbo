@@ -42,7 +42,21 @@
                            value="<?= set_value('waktu', $pesan['waktu']); ?>">
                     <?= form_error('waktu', '<small class="text-danger">', '</small>'); ?>
                   </div>
-
+                  <!-- team -->
+                  <div class="mb-3">
+                    <label for="team" class="form-label">Team</label>
+                      <select name="team" class="form-control">
+                        <option value="">-- Tanpa Team --</option>
+                        <?php foreach ($teams as $t): ?>
+                          <option value="<?= $t['id_team']; ?>"
+                            <?= ($pesan['team'] == $t['id_team']) ? 'selected' : ''; ?>>
+                            <?= $t['nama_team']; ?>
+                          </option>
+                        <?php endforeach; ?>
+                      </select>
+                    <?= form_error('team', '<small class="text-danger">', '</small>'); ?>
+                  </div>
+                  <!-- End of team  -->
                   <div class="mb-3">
                     <label for="nama_pembeli" class="form-label">Nama Pembeli</label>
                     <input type="text"
