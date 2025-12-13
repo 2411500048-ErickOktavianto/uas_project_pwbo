@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 11, 2025 at 08:22 AM
+-- Generation Time: Dec 13, 2025 at 07:02 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -32,6 +32,7 @@ CREATE TABLE `daftar_pesan` (
   `waktu` varchar(50) NOT NULL,
   `nama_pembeli` varchar(64) NOT NULL,
   `server` int NOT NULL,
+  `team` int DEFAULT NULL,
   `status_pesan` varchar(25) NOT NULL,
   `harga` bigint NOT NULL,
   `satuan` varchar(8) NOT NULL,
@@ -42,8 +43,8 @@ CREATE TABLE `daftar_pesan` (
 -- Dumping data for table `daftar_pesan`
 --
 
-INSERT INTO `daftar_pesan` (`id_pesan`, `waktu`, `nama_pembeli`, `server`, `status_pesan`, `harga`, `satuan`, `create_at`) VALUES
-(9, '20.00 - 03.00', 'Devid w', 3, 'Run', 30000, 'IDR', '2025-12-07 21:22:59');
+INSERT INTO `daftar_pesan` (`id_pesan`, `waktu`, `nama_pembeli`, `server`, `team`, `status_pesan`, `harga`, `satuan`, `create_at`) VALUES
+(14, '15.00 - 18.00', 'Daffa', 1, 1, 'Done', 30, 'DL', '2025-12-12 23:51:40');
 
 -- --------------------------------------------------------
 
@@ -66,8 +67,9 @@ CREATE TABLE `hutang` (
 
 INSERT INTO `hutang` (`id_hutang`, `nama_orang`, `total_hutang`, `status_hutang`, `create_at`, `satuan`) VALUES
 (1, 'Rio kanncil', 100, 'Lunas', '0000-00-00 00:00:00', 'DL'),
-(4, 'burung jg', 5000, 'Lunas', '0000-00-00 00:00:00', 'IDR'),
-(5, 'orang', 50, 'Belum Lunas', '0000-00-00 00:00:00', 'DL');
+(4, 'burung jg', 590, 'Lunas', '0000-00-00 00:00:00', 'IDR'),
+(5, 'orang', 50, 'Belum Lunas', '0000-00-00 00:00:00', 'DL'),
+(6, 'adad', 20, 'Lunas', '2025-12-12 22:37:01', 'DL');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ CREATE TABLE `server` (
 
 INSERT INTO `server` (`id_server`, `ip_address`, `expired`, `status`, `create_at`) VALUES
 (1, '38.240.49.234', '2025-12-10', 'Available', '2025-12-03 23:40:46'),
-(3, '38.240.49.181', '2025-12-28', 'USED', '2025-12-03 23:57:48');
+(3, '38.240.49.181', '2025-12-28', 'Available', '2025-12-03 23:57:48');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,8 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id_team`, `nama_team`) VALUES
-(1, 'Jegeh');
+(1, 'Octa'),
+(3, 'VIT');
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ INSERT INTO `user` (`id_user`, `name`, `password`, `email`) VALUES
 --
 ALTER TABLE `daftar_pesan`
   ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `server_ip` (`server`);
+  ADD KEY `server_ip` (`server`),
+  ADD KEY `server_team` (`team`);
 
 --
 -- Indexes for table `hutang`
@@ -172,13 +176,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `daftar_pesan`
 --
 ALTER TABLE `daftar_pesan`
-  MODIFY `id_pesan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pesan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `hutang`
 --
 ALTER TABLE `hutang`
-  MODIFY `id_hutang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_hutang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `server`
@@ -190,7 +194,7 @@ ALTER TABLE `server`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id_team` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_team` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -206,7 +210,8 @@ ALTER TABLE `user`
 -- Constraints for table `daftar_pesan`
 --
 ALTER TABLE `daftar_pesan`
-  ADD CONSTRAINT `server_ip` FOREIGN KEY (`server`) REFERENCES `server` (`id_server`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `server_ip` FOREIGN KEY (`server`) REFERENCES `server` (`id_server`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `server_team` FOREIGN KEY (`team`) REFERENCES `team` (`id_team`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
