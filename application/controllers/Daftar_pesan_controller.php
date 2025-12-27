@@ -27,10 +27,14 @@ class Daftar_pesan_controller extends CI_Controller {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function tambah_pesanan()
 =======
     public function tambah_pesan()
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+    public function tambah_pesanan()
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
     {
         $this->form_validation->set_rules('nama_pembeli', 'Nama Pembeli', 'required');
         $this->form_validation->set_rules('waktu', 'Waktu', 'required');
@@ -40,10 +44,14 @@ class Daftar_pesan_controller extends CI_Controller {
 
         if ($this->form_validation->run() !== FALSE) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->__simpan_pesanan();
 =======
             $this->__simpan_pesan();
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+            $this->__simpan_pesanan();
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         } else {
             // hanya server yang Available yang boleh dipilih
             $data['servers'] = $this->Server_model->get_available();
@@ -58,10 +66,14 @@ class Daftar_pesan_controller extends CI_Controller {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private function __simpan_pesanan()
 =======
     private function __simpan_pesan()
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+    private function __simpan_pesanan()
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
     {
         $id_server = $this->input->post('server'); // ini id_server
         $id_team   = $this->input->post('team');   // ini id_team
@@ -115,6 +127,7 @@ class Daftar_pesan_controller extends CI_Controller {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function hapus_pesanan($id)
     {
         // 1. Ambil data pesanan dulu, untuk tahu id_server yang dipakai
@@ -123,6 +136,11 @@ class Daftar_pesan_controller extends CI_Controller {
     {
         // 1. Ambil data pesan dulu, untuk tahu id_server yang dipakai
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+    public function hapus_pesanan($id)
+    {
+        // 1. Ambil data pesanan dulu, untuk tahu id_server yang dipakai
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $pesan = $this->Daftar_pesan_model->get_by_id($id);
 
         if ( ! $pesan) {
@@ -146,10 +164,14 @@ class Daftar_pesan_controller extends CI_Controller {
         if ($hapus) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 3. Jika pesanan punya server, kembalikan status server jadi Available
 =======
             // 3. Jika pesan punya server, kembalikan status server jadi Available
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+            // 3. Jika pesanan punya server, kembalikan status server jadi Available
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
             if (!empty($id_server)) {
                 $this->Server_model->update_status($id_server, 'Available');
             }
@@ -186,10 +208,14 @@ class Daftar_pesan_controller extends CI_Controller {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // ambil server yang dipakai oleh pesanan yang akan dihapus
 =======
         // ambil server yang dipakai oleh pesan yang akan dihapus
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+        // ambil server yang dipakai oleh pesanan yang akan dihapus
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $servers = $this->Daftar_pesan_model->get_servers_by_ids($ids);
 
         // hapus banyak
@@ -204,6 +230,7 @@ class Daftar_pesan_controller extends CI_Controller {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->session->set_flashdata('message', '<div class="alert alert-success">Pesanan terpilih berhasil dihapus.</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus pesanan terpilih.</div>');
@@ -212,6 +239,11 @@ class Daftar_pesan_controller extends CI_Controller {
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus pesan terpilih.</div>');
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+            $this->session->set_flashdata('message', '<div class="alert alert-success">Pesanan terpilih berhasil dihapus.</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus pesanan terpilih.</div>');
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         }
 
         redirect('daftar_pesan');
@@ -223,10 +255,14 @@ class Daftar_pesan_controller extends CI_Controller {
         $servers = $this->Daftar_pesan_model->get_all_servers();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // hapus semua pesanan
 =======
         // hapus semua pesan
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+        // hapus semua pesanan
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $hapus = $this->Daftar_pesan_model->hapus_semua();
 
         if ($hapus) {
@@ -236,6 +272,7 @@ class Daftar_pesan_controller extends CI_Controller {
                 }
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->session->set_flashdata('message', '<div class="alert alert-success">Semua pesanan berhasil dihapus.</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus semua pesanan.</div>');
@@ -244,15 +281,24 @@ class Daftar_pesan_controller extends CI_Controller {
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus semua pesan.</div>');
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+            $this->session->set_flashdata('message', '<div class="alert alert-success">Semua pesanan berhasil dihapus.</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Gagal menghapus semua pesanan.</div>');
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         }
 
         redirect('daftar_pesan');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 
 
 
     public function edit_pesanan($id)
+<<<<<<< HEAD
 =======
     public function test()
 {
@@ -358,6 +404,8 @@ public function export_pilih()
 
     public function edit_pesan($id)
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
     {
         $pesan = $this->Daftar_pesan_model->get_by_id($id);
         if (!$pesan) {
@@ -437,6 +485,7 @@ public function export_pilih()
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function selesai_pesanan($id)
     {
         // Ambil data pesanan berdasarkan ID
@@ -445,6 +494,11 @@ public function export_pilih()
     {
         // Ambil data pesan berdasarkan ID
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+    public function selesai_pesanan($id)
+    {
+        // Ambil data pesanan berdasarkan ID
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $pesan = $this->Daftar_pesan_model->get_by_id($id);
 
         if ( ! $pesan) {
@@ -461,6 +515,7 @@ public function export_pilih()
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $id_server = $pesan['server'];   // id_server yang dipakai pesanan ini
 
         // 1. Update status pesanan jadi Done (TIDAK mengubah kolom server)
@@ -469,6 +524,11 @@ public function export_pilih()
 
         // 1. Update status pesan jadi Done (TIDAK mengubah kolom server)
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+        $id_server = $pesan['server'];   // id_server yang dipakai pesanan ini
+
+        // 1. Update status pesanan jadi Done (TIDAK mengubah kolom server)
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $update = $this->Daftar_pesan_model->update($id, [
             'status_pesan' => 'Done'
         ]);
@@ -483,10 +543,14 @@ public function export_pilih()
             $this->session->set_flashdata('message',
                 '<div class="alert alert-success alert-dismissible fade show" role="alert">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     Pesanan telah selesai
 =======
                     pesan telah selesai
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+                    Pesanan telah selesai
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -496,10 +560,14 @@ public function export_pilih()
             $this->session->set_flashdata('message',
                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     Gagal menandai pesanan sebagai selesai
 =======
                     Gagal menandai pesan sebagai selesai
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+                    Gagal menandai pesanan sebagai selesai
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -511,6 +579,7 @@ public function export_pilih()
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 
@@ -519,4 +588,9 @@ public function export_pilih()
 }
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+}
+
+
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 ?>

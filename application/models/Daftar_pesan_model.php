@@ -2,6 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 
 class Daftar_pesan_model extends CI_Model{
     private $_table = "daftar_pesan";
@@ -23,6 +26,7 @@ class Daftar_pesan_model extends CI_Model{
     }
 
     // fungsi ini untuk menhandle penambahan ID_Pesan secara otomatis
+<<<<<<< HEAD
 =======
 class Daftar_pesan_model extends CI_Model
 {
@@ -47,6 +51,8 @@ class Daftar_pesan_model extends CI_Model
     }
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
     public function get_next_id()
     {
         $row = $this->db
@@ -55,16 +61,22 @@ class Daftar_pesan_model extends CI_Model
             ->row_array();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $next = isset($row['id_pesan']) ? (int)$row['id_pesan'] + 1 : 1;
         return $next;
     }
 
     // >>> fungsi: ambil satu pesanan berdasarkan id
+<<<<<<< HEAD
 =======
         return isset($row['id_pesan']) ? (int)$row['id_pesan'] + 1 : 1;
     }
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
     public function get_by_id($id)
     {
         return $this->db
@@ -75,6 +87,9 @@ class Daftar_pesan_model extends CI_Model
     public function hapus($id)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
         $this->db->where('id_pesan', $id);
         return $this->db->delete($this->_table);
     }   
@@ -125,6 +140,7 @@ class Daftar_pesan_model extends CI_Model
 }
 
 
+<<<<<<< HEAD
 ?>
 =======
         return $this->db
@@ -189,3 +205,6 @@ class Daftar_pesan_model extends CI_Model
 
 }
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+?>
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80

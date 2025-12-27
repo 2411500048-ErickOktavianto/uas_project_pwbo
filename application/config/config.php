@@ -531,6 +531,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -538,3 +539,5 @@ $config['proxy_ips'] = '';
 date_default_timezone_set('Asia/Jakarta');
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80

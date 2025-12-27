@@ -92,10 +92,14 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <a href="#" class="nav-link">
 =======
                  <a href="<?= base_url('Laporan_pembelian'); ?>" class="nav-link">
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+                <a href="#" class="nav-link">
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Pembelian</p>
                 </a>

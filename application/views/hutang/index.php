@@ -39,11 +39,15 @@
 
               <!-- Tombol tambah -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
               <a class="btn btn-outline-primary"
                  href="<?php echo base_url('hutang/tambah'); ?>"
                  role="button">Tambah Data</a>
 
               <br><br>
+<<<<<<< HEAD
 =======
               <div class="mb-3 d-flex">
     <a href="<?= base_url('hutang/tambah') ?>" class="btn btn-primary me-2">
@@ -57,6 +61,8 @@
 
             <br></br>
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 
               <!-- Tabel Data Hutang -->
               <table class="table">

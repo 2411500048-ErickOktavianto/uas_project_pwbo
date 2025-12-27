@@ -70,6 +70,7 @@ $route['daftar_pesan/edit/(:any)'] = 'Daftar_pesan_controller/edit_pesanan/$1';
 $route['daftar_pesan/hapus_semua'] = 'Daftar_pesan_controller/hapus_semua';
 $route['daftar_pesan/hapus_banyak'] = 'Daftar_pesan_controller/hapus_banyak';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 $route['daftar_pesan'] = 'daftar_pesan_controller';
 $route['daftar_pesan/(:any)'] = 'daftar_pesan_controller/$1';
@@ -89,6 +90,8 @@ $route['daftar_pesan/(:any)/(:num)'] = 'daftar_pesan_controller/$1/$2';
 
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 
 // data team
 $route['team'] = 'Team_controller/index';
@@ -101,6 +104,7 @@ $route['hutang'] = 'Hutang_controller/index';
 $route['hutang/tambah'] = 'Hutang_controller/tambah_hutang';
 $route['hutang/hapus/(:any)'] = 'Hutang_controller/hapus_hutang/$1';
 $route['hutang/edit/(:any)'] = 'Hutang_controller/edit_hutang/$1';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 $route['hutang'] = 'hutang_controller/index';
@@ -124,4 +128,6 @@ $route['laporan_pembelian/export_pdf'] = 'Laporan_pembelian_controller/export_pd
 $route['laporan_pembelian/hapus_pilih'] = 'Laporan_pembelian_controller/hapus_pilih';
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 

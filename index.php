@@ -113,6 +113,7 @@ switch (ENVIRONMENT)
  * https://codeigniter.com/userguide3/general/managing_apps.html
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * NO TRAILING SLASH!
  */
 =======
@@ -123,6 +124,10 @@ switch (ENVIRONMENT)
 require __DIR__ . '/vendor/autoload.php';
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+ * NO TRAILING SLASH!
+ */
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 	$application_folder = 'application';
 
 /*

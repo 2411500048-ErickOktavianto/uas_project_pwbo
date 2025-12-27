@@ -12,12 +12,16 @@
 	},
 	"require": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		"php": ">=5.3.7"
 =======
 		"php": ">=5.3.7",
 		"dompdf/dompdf": "^3.1",
 		"mpdf/mpdf": "^8.2"
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+		"php": ">=5.3.7"
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

@@ -40,6 +40,7 @@
                   Hapus Semua Pesanan
                 </a>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
                   <!-- TOMBOL BARU (EXPORT)-->
@@ -49,6 +50,8 @@
                     Export Laporan (Pilih)
                   </a>
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                 <form id="formHapusPilih" method="post" action="<?= base_url('daftar_pesan/hapus_banyak'); ?>">
                   <table class="table mt-3">
                     <thead>
@@ -70,6 +73,7 @@
                                 <tr>
                                     <!-- ID Pesanan dengan format LP-01 -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                                      <th><input type="checkbox" name="id_pesan[]" value="<?= $pesan['id_pesan']; ?>"></th>
 =======
                                      <th><input type="checkbox"
@@ -78,6 +82,9 @@
        data-status="<?= $pesan['status_pesan']; ?>">
 </th>
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+                                     <th><input type="checkbox" name="id_pesan[]" value="<?= $pesan['id_pesan']; ?>"></th>
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                                     <th scope="row">
                                         <?= 'LP-' . str_pad($pesan['id_pesan'], 2, '0', STR_PAD_LEFT); ?>
                                     </th>
@@ -113,6 +120,9 @@
                                     <td>
                                         <!-- Bagian Edit -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                                         <a href="<?= base_url('daftar_pesan/edit/'.$pesan['id_pesan']); ?>"
                                         class="badge bg-warning">Edit</a> 
 
@@ -122,6 +132,7 @@
 
                                         <!-- Bagian Hapus -->
                                         <a href="<?= base_url('daftar_pesan/hapus/'.$pesan['id_pesan']); ?>" 
+<<<<<<< HEAD
 =======
                                         <a href="<?= base_url('daftar_pesan/edit_pesan/'.$pesan['id_pesan']); ?>"
                                         class="badge bg-warning">Edit</a> 
@@ -133,6 +144,8 @@
                                         <!-- Bagian Hapus -->
                                         <a href="<?= base_url('daftar_pesan/hapus_pesan/'.$pesan['id_pesan']); ?>" 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
                                         class="badge bg-danger"
                                         onclick="return confirm('Yakin ingin hapus data ini?')">
                                         Hapus
@@ -157,6 +170,7 @@
 
   <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 document.getElementById('btnHapusPilih').addEventListener('click', function () {
   const checked = document.querySelectorAll('input[name="id_pesan[]"]:checked');
 =======
@@ -169,15 +183,23 @@ document.getElementById('btnHapusPilih').addEventListener('click', function (e) 
   const checked = document.querySelectorAll('input[name="id_pesan[]"]:checked');
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+document.getElementById('btnHapusPilih').addEventListener('click', function () {
+  const checked = document.querySelectorAll('input[name="id_pesan[]"]:checked');
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
   if (checked.length === 0) {
     alert('Pilih minimal 1 pesanan dulu.');
     return;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
   if (confirm('Yakin ingin menghapus pesanan yang dipilih?')) {
     document.getElementById('formHapusPilih').submit();
   }
 });
+<<<<<<< HEAD
 </script>
 =======
 
@@ -225,3 +247,6 @@ document.getElementById('btnExportPilih').addEventListener('click', function (e)
 </script>
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+</script>
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80

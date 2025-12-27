@@ -99,6 +99,7 @@ class Hutang_controller extends CI_Controller {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         redirect('hutang');
     }
 =======
@@ -128,6 +129,10 @@ class Hutang_controller extends CI_Controller {
 }
 
 >>>>>>> a56018f (Update laporan pembelian & hutang by framlie)
+=======
+        redirect('hutang');
+    }
+>>>>>>> b13a2313cbc45e9c683548a68c5168349d2f3e80
 
     public function edit_hutang($id)
     {   
